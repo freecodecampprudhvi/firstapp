@@ -12,17 +12,17 @@ background-color:white;
   width:450 px;
 }
 }
-.App button.Red{
+.App Red{
   background-color: red;
   
 }
 .App button.Red:hover{
   background-color: salmon;
 }
-.App button.Bold{
+.App Bold{
   font-weight:bold;
 }
-.App button.Green{
+.App Green{
   color: green;
 
 }

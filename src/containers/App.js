@@ -1,22 +1,6 @@
 import React, { Component } from 'react';
 import classes from './App.module.css';
-import Person from '../components/Persons/Person/Person';
-import styled from 'styled-components';
 import Persons from '../components/Persons/Persons';
-const StyleDiv=
-  styled.div`
-  margin:16px auto;
-  
-  width:60%;
-  border:3px solid #272321;
-  box-shadow: 0 3px 15px #272321;
-  padding: 16px;
-  text-align: center;
-  height:450px;
-  @media (min-width:500px){
-  width:'450px';
-  }
-  `;
 
 class App extends Component {
   state=
@@ -75,15 +59,15 @@ let btnClass='';
    
     }
    let plength=this.state.persons.length;
-
+console.log(plength);
   const  Aclasses=[];
   if(plength <=1)
   {
-        Aclasses.push(classes.App.red);
+        Aclasses.push(classes.Red);
 }
 if(plength >=2)
 {
-      Aclasses.push(classes.App.green);
+      Aclasses.push(classes.Green);
 }
 
     return (
@@ -92,7 +76,7 @@ if(plength >=2)
        <h1>HI this is React JS</h1>
         <p className={Aclasses}>Learn and it is funny</p>
  
-        <button  class={btnClass} alt={this.state.showPerson} onClick={this.togglePersonHandler}>Toggle person</button>
+        <button  className={btnClass} alt={this.state.showPerson} onClick={this.togglePersonHandler}>Toggle person</button>
        {person}
 </div>
     );

@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
-
-persons.map((person,index) => {
+import Person from './Person/Person';
+const persons= (props)=> props.persons.map((person,index) => {
     return <Person 
-    
-    
     name={person.name} 
     age={person.age}
     key={person.id}
     changed={(event) => this.nameChangeHandler(event,person.id)}/>
-  })
+  });
+export default persons;
