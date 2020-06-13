@@ -12,75 +12,60 @@ class App extends Component {
     showPerson: false
   }
 
-
-nameChangeHandler = (event,id) =>
-{
-const personIndex= this.state.persons.findIndex(p=>
+  nameChangeHandler = (event,id) =>
   {
-    return p.id===id;
-  });
-const tempPerson={...this.state.persons[personIndex]};
-   tempPerson.name=event.target.value;
-   const spersons=[...this.state.persons];
-   spersons[personIndex]=tempPerson;
-   this.setState({persons : spersons});
-}
+    const personIndex= this.state.persons.findIndex(p=> {return p.id===id;});
+    const tempPerson={...this.state.persons[personIndex]};
+    tempPerson.name=event.target.value;
+    const spersons=[...this.state.persons];
+    spersons[personIndex]=tempPerson;
+    this.setState({persons: spersons});
+  }
 
   deletePersonHandler = (personIndex) =>
   {
-  const tempPerson=[...this.state.persons];
-  tempPerson.splice(personIndex,1);
-  this.setState({persons: tempPerson})
+    const tempPerson=[...this.state.persons];
+    tempPerson.splice(personIndex,1);
+    this.setState({persons: tempPerson})
   }
 
   togglePersonHandler= () =>
   {
     const doShow= this.state.showPerson;
-this.setState(
- {showPerson: !doShow }
-);
+    this.setState({showPerson: !doShow });
   }
   
-  render() {
-let btnClass='';
-
-
-    let person=null;
-
-    if(this.state.showPerson){
-      person=(
-
-    <div>  
-        <Persons/>
-      
-   </div>
-   );
-   btnClass=classes.Red;
-   
-    }
-   let plength=this.state.persons.length;
-console.log(plength);
-  const  Aclasses=[];
-  if(plength <=1)
+  render() 
   {
-        Aclasses.push(classes.Red);
-}
-if(plength >=2)
-{
-      Aclasses.push(classes.Green);
-}
-
+    let btnClass='';
+    let person=null;
+    if(this.state.showPerson)
+    { 
+      person=
+      (<div>
+      <Persons 
+      persons={this.state.persons}
+      clicked={this.deletePersonHandler} 
+      changed={this.nameChangeHandler}/>
+      </div>);
+      btnClass=classes.Red;
+    }
+    let plength=this.state.persons.length;
+    const Aclasses=[];
+    if(plength <=1) {Aclasses.push(classes.red);}
+    if(plength >=2) { Aclasses.push(classes.green );}
     return (
-<div className={classes.App}>
-
+      <div className={classes.App}>
        <h1>HI this is React JS</h1>
         <p className={Aclasses}>Learn and it is funny</p>
- 
-        <button  className={btnClass} alt={this.state.showPerson} onClick={this.togglePersonHandler}>Toggle person</button>
+        <button  
+            className={btnClass} 
+            alt={this.state.showPerson} 
+            onClick={this.togglePersonHandler}>Toggle person
+        </button>
        {person}
-</div>
+      </div>
     );
-
   }
 }
 

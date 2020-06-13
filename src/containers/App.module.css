@@ -1,4 +1,4 @@
-.App {
+.App{
   text-align: center;
   margin:16px auto;
   width:60%;
@@ -12,19 +12,23 @@ background-color:white;
   width:450 px;
 }
 }
-.App Red{
+.red{
+  color: red;
+}
+
+.App button.Red{
   background-color: red;
-  
+  color:white;
 }
 .App button.Red:hover{
   background-color: salmon;
+color:white;
 }
 .App Bold{
   font-weight:bold;
 }
-.App Green{
+.green{
   color: green;
-
 }
 
 .App button{
