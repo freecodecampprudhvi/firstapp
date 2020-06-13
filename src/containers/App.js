@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import classes from './App.module.css';
+import Cockpit from '../components/Cockpit/Cockpit';
 import Persons from '../components/Persons/Persons';
-
 class App extends Component {
   state=
   {
@@ -31,13 +31,13 @@ class App extends Component {
 
   togglePersonHandler= () =>
   {
+    console.log("inside toggle Handler");
     const doShow= this.state.showPerson;
     this.setState({showPerson: !doShow });
   }
   
   render() 
   {
-    let btnClass='';
     let person=null;
     if(this.state.showPerson)
     { 
@@ -48,23 +48,13 @@ class App extends Component {
       clicked={this.deletePersonHandler} 
       changed={this.nameChangeHandler}/>
       </div>);
-      btnClass=classes.Red;
     }
-    let plength=this.state.persons.length;
-    const Aclasses=[];
-    if(plength <=1) {Aclasses.push(classes.red);}
-    if(plength >=2) { Aclasses.push(classes.green );}
     return (
-      <div className={classes.App}>
-       <h1>HI this is React JS</h1>
-        <p className={Aclasses}>Learn and it is funny</p>
-        <button  
-            className={btnClass} 
-            alt={this.state.showPerson} 
-            onClick={this.togglePersonHandler}>Toggle person
-        </button>
-       {person}
-      </div>
+     <div className={classes.App}>
+      <Cockpit state={this.state}
+      click={this.togglePersonHandler}/>
+      {person}
+    </div>
     );
   }
 }
