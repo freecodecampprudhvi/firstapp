@@ -6,7 +6,7 @@
   box-shadow: 0 3px 15px #272321;
   padding: 16px;
   text-align: center;
-  height:450px;
+  height:550px;
 background-color:white;
   @media (min-width:500 px){
   width:450 px;
@@ -27,7 +27,7 @@ color:white;
 .App Bold{
   font-weight:bold;
 }
-.green{
+.App green{
   color: green;
 }
 
